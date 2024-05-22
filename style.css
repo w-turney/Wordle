@@ -1,0 +1,71 @@
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(240, 3%, 7%);
+    padding: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(0.75rem, 3vmin, 1.75rem); /* sets font size to 3vmin(so will adjust to screens size, and also specifies min and max values */
+}
+
+
+.grid {
+    display: grid;
+    grid-template: repeat(6, 3.25em) / repeat(5, 3.25em);
+    gap: 0.3em;
+    margin-bottom: 0.75em;
+}
+
+.square {
+    border: solid rgb(72, 72, 72) 2px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.75em;
+}
+
+.keyboard {
+    display: grid;
+    grid-template: repeat(3, 3.5em) / repeat(20, minmax(auto, 1.25em)); /* using em units means size will adjust based on font-size */
+    gap: 0.4em 0.3em;
+    justify-content: center;
+}
+
+.key {
+    background-color: hsl(200, 1%, 51%);
+    color: white;
+    grid-column: span 2;
+    display: grid;
+    place-items: center;
+    border-radius: 0.2em;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none; /* stops highlghting */
+}
+
+#del-key, #enter-key {
+    grid-column: span 3;
+    font-size: 0.75rem;
+}
+
+[data-state='active'] {
+    border: solid white 1px;
+}
+
+.grey {
+    background-color: rgb(63, 63, 63);
+}
+
+.yellow {
+    background-color: rgb(206, 206, 95);
+}
+
+.green {
+    background-color: rgb(60, 155, 60);
+}
